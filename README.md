@@ -1,37 +1,71 @@
-## Welcome to GitHub Pages
+## Detecting border vectors with Teensy 4 + Pixy 2
 
-You can use the [editor on GitHub](https://github.com/Enseirb-NXP-Cup-2019/nxpcup.enseirb.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+### The Pixy 2
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+The Pixy 2 is a camera with many built-in functionalities such as object tracking and line detection. You can find many details and documentations at [Pixy2](https://pixycam.com/pixy2/). We decided to use it in this project because it allow us (in a certain level) to abstract all the image processing part and work directly with the border vectors of the track.
 
-### Markdown
+The following images show our first test setup and results, using directly the Pixy2.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+![pixy2_pointing](https://raw.githubusercontent.com/Enseirb-NXP-Cup-2019/nxpcup.enseirb.github.io/master/img/pixy2-pointing.jpg)
 
-```markdown
-Syntax highlighted code block
+![pixy2_with_vectors](https://raw.githubusercontent.com/Enseirb-NXP-Cup-2019/nxpcup.enseirb.github.io/master/img/pixy2-vector.png)
 
-# Header 1
-## Header 2
-### Header 3
+### The Teensy 4
+The Teensy 4 is a powerfull microcontroller which can be programmed using the [Arduino IDE add-on](https://www.pjrc.com/teensy/td_download.html). In order to have the Teensy working we use a 5V micro-usb. For a first test, we connected it to the arduino IDE and tried to upload the simple example, which worked flawlessly.
 
-- Bulleted
-- List
+### Mixing Teensy 4 + Pixy 2
+Having both parts working together, now we must mix them in order to have the Pixy vectors being send to the Teensy. The key element to do it is the [Pixy 2 API for Arduino](https://docs.pixycam.com/wiki/doku.php?id=wiki:v2:full_api) which provides an easy way to access all data from the camera inside the microprocessor.
 
-1. Numbered
-2. List
+Using this API, we can make some very slight changes to the example of "line_get_all" which looks like:
 
-**Bold** and _Italic_ and `Code` text
+```c
+#include <Pixy2.h>
 
-[Link](url) and ![Image](src)
+Pixy2 pixy;
+
+void setup() {
+  Serial.begin(115200);
+  Serial.print("Starting...\n");
+
+  // we need to initialize the pixy object
+  pixy.init();
+  // Change to line tracking program
+  pixy.changeProg("line");
+}
+
+void loop() {
+  int8_t i;
+  char buf[128];
+ 
+  pixy.line.getAllFeatures();
+
+  // print all vectors
+  for (i=0; i<pixy.line.numVectors; i++)
+  {
+    sprintf(buf, "line %d: ", i);
+    Serial.print(buf);
+    pixy.line.vectors[i].print();
+  }
+
+}
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+This is the very basic code that only displays what vectors are being readed from the Pixy 2. The following images show the final setup and the results.
 
-### Jekyll Themes
+![pixy2_with_vectors](https://raw.githubusercontent.com/Enseirb-NXP-Cup-2019/nxpcup.enseirb.github.io/master/img/final-setup.jpeg)
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Enseirb-NXP-Cup-2019/nxpcup.enseirb.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+![pixy2_with_vectors](https://raw.githubusercontent.com/Enseirb-NXP-Cup-2019/nxpcup.enseirb.github.io/master/img/final-results.png)
 
-### Support or Contact
+If we take a look at the the Pixy 2 results, we can see it's detecting three vectors there are more or less always the same like:
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+```json
+{
+  line0: [[54, 15], [55, 0]],
+  line1: [[68, 17], [70, 0]],
+  line2: [[23, 10], [24, 0]]
+}
+```
+
+To be sure the results look like we would expect (three more or less vertical bars) we can plot the results in the Pixy 2 vector capture format and check that we have three vertical vectors:
+
+![pixy2_with_vectors](https://raw.githubusercontent.com/Enseirb-NXP-Cup-2019/nxpcup.enseirb.github.io/master/img/image-365.png)
