@@ -6,7 +6,7 @@ The Pixy 2 is a camera with many built-in functionalities such as object trackin
 
 The following images show our first test setup and results, using directly the Pixy2.
 
-![pixy2_pointing](https://raw.githubusercontent.com/Enseirb-NXP-Cup-2019/nxpcup.enseirb.github.io/master/img/pixy2-pointing.jpg)
+![pixy2_pointing](https://raw.githubusercontent.com/Enseirb-NXP-Cup-2019/nxpcup.enseirb.github.io/master/img/pixy2-pointing.png)
 
 ![pixy2_with_vectors](https://raw.githubusercontent.com/Enseirb-NXP-Cup-2019/nxpcup.enseirb.github.io/master/img/pixy2-vector.png)
 
