@@ -36,7 +36,7 @@ void setup() {
 void loop() {
   int8_t i;
   char buf[128];
- 
+
   pixy.line.getAllFeatures();
 
   // print all vectors
@@ -69,3 +69,23 @@ If we take a look at the the Pixy 2 results, we can see it's detecting three vec
 To be sure the results look like we would expect (three more or less vertical bars) we can plot the results in the Pixy 2 vector capture format and check that we have three vertical vectors:
 
 ![pixy2_with_vectors](https://raw.githubusercontent.com/Enseirb-NXP-Cup-2019/nxpcup.enseirb.github.io/master/img/image-365.png)
+
+---
+
+## Simultaneous localization and mapping (SLAM)
+
+A brief history of SLAM and it's future can be grasped with this papper : [C. Cadena and L. Carlone and H. Carrillo and Y. Latif and D. Scaramuzza and J. Neira and I. Reid and J.J. Leonard,
+“Past, Present, and Future of Simultaneous Localization And Mapping: Towards the Robust-Perception Age”,
+in IEEE Transactions on Robotics 32 (6) pp 1309-1332, 2016](https://arxiv.org/abs/1606.05830).
+
+A brief overview of SLAM and it's issues : [Frese, Udo. (2006). A Discussion of Simultaneous Localization and Mapping. Auton. Robots. 20. 25-42. 10.1007/s10514-006-5735-x.](https://www.researchgate.net/publication/220474326_A_Discussion_of_Simultaneous_Localization_and_Mapping)
+
+# Papers
+* [Oussama El Hamzaoui. Localisation et cartographie simultanées pour un robot mobile équipé d’un
+laser à balayage : CoreSLAM. Autre [cs.OH]. Ecole Nationale Supérieure des Mines de Paris, 2012.
+Français. NNT : 2012ENMP0103. pastel-00935600](https://pastel.archives-ouvertes.fr/pastel-00935600)
+* [](https://ieeexplore.ieee.org/document/1570091)
+
+# Others
+
+* A list of algorithms : [Open-Slam](https://openslam-org.github.io/)
