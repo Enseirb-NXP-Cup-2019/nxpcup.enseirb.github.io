@@ -63,6 +63,7 @@ If we take a look at the the Pixy 2 results, we can see it's detecting three vec
   line0: [[54, 15], [55, 0]],
   line1: [[68, 17], [70, 0]],
   line2: [[23, 10], [24, 0]]
+  
 }
 ```
 
@@ -71,6 +72,47 @@ To be sure the results look like we would expect (three more or less vertical ba
 ![pixy2_with_vectors](https://raw.githubusercontent.com/Enseirb-NXP-Cup-2019/nxpcup.enseirb.github.io/master/img/image-365.png)
 
 ---
+
+## Controlling brushless motor with ESC
+
+### Brushless motor
+
+A brushless motor is a direct current electric motor that operates without the mechanical brushes and commutator of a traditional brush motor. It has more advantages than brushed motor has. Indeed a brushless motor has an higher torque to weight ratio and
+increased torque per watt of power input. As it has no brushes to get worn out, a brushless motor has a longer lifespan.
+In this project, a brushless motor is used to drive the four wheels of the car. But to command the brushless motor with Teensy, an ESC is needed.
+
+### ESC
+
+ESC stand for Electronic Speed Control. It is an electronic circuit that controls and regulates the speed of an electric motor. It will be the intermediate between the brushless motor and the Teensy programm. 
+
+![ESC_connections]()
+
+
+An ESC is typically a kind of servo motor, so it can be controlled with the library Servo.h of Arduino. The first and important step before using the ESC is the calibration. This consist on sending to the ESC the high value it can take then the low value. With this the ESC set its range of throttle level. We can find more information about calibration [here](https://github.com/lobodol/ESC-calibration)
+
+The following code is an example of how to use a calibrated ESC to control a linked brushless motor :
+
+
+```c
+#include <Servo.h>
+
+Servo esc;
+
+/**
+ * Initialisation routine
+ */
+void setup() {
+    esc.attach(10);
+}
+void loop(){
+  for(int i=0; i<=180; i++){   
+    esc.write(i);
+  }
+    esc.write(0);  //braking
+ }
+
+```
+
 
 ## Simultaneous localization and mapping (SLAM)
 
@@ -90,3 +132,4 @@ Français. NNT : 2012ENMP0103. pastel-00935600](https://pastel.archives-ouvertes
 # Others
 
 * A list of algorithms : [Open-Slam](https://openslam-org.github.io/)
+
