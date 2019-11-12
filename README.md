@@ -85,7 +85,7 @@ In this project, a brushless motor is used to drive the four wheels of the car. 
 
 ESC stand for Electronic Speed Control. It is an electronic circuit that controls and regulates the speed of an electric motor. It will be the intermediate between the brushless motor and the Teensy programm. 
 
-![ESC_connections]()
+![ESC_connections](https://raw.githubusercontent.com/Enseirb-NXP-Cup-2019/nxpcup.enseirb.github.io/master/img/esc_connections.png)
 
 
 An ESC is typically a kind of servo motor, so it can be controlled with the library Servo.h of Arduino. The first and important step before using the ESC is the calibration. This consist on sending to the ESC the high value it can take then the low value. With this the ESC set its range of throttle level. We can find more information about calibration [here](https://github.com/lobodol/ESC-calibration)
