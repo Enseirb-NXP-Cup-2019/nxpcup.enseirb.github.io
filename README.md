@@ -132,8 +132,6 @@ laser à balayage : CoreSLAM. Autre [cs.OH]. Ecole Nationale Supérieure des Min
 Français. NNT : 2012ENMP0103. pastel-00935600](https://pastel.archives-ouvertes.fr/pastel-00935600)
 * [IEEE Document (TODO: Fix name)](https://ieeexplore.ieee.org/document/1570091)
 
-* [Slam presentation] (http://ais.informatik.uni-freiburg.de/teaching/ss12/robotics/slides/12-slam.pdf)
-
 # Others
 
 * A list of algorithms : [Open-Slam](https://openslam-org.github.io/)
