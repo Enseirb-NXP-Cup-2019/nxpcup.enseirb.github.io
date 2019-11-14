@@ -122,7 +122,7 @@ in IEEE Transactions on Robotics 32 (6) pp 1309-1332, 2016](https://arxiv.org/ab
 
 A brief overview of SLAM and it's issues : [Frese, Udo. (2006). A Discussion of Simultaneous Localization and Mapping. Auton. Robots. 20. 25-42. 10.1007/s10514-006-5735-x.](https://www.researchgate.net/publication/220474326_A_Discussion_of_Simultaneous_Localization_and_Mapping)
 
-SlAM presentation : [What is Slam and his issues ?] (http://ais.informatik.uni-freiburg.de/teaching/ss12/robotics/slides/12-slam.pdf)
+SlAM presentation : [What is Slam and his issues ?](http://ais.informatik.uni-freiburg.de/teaching/ss12/robotics/slides/12-slam.pdf)
 
 [A tutorial on SLAM Part 1](http://www.doc.ic.ac.uk/~ajd/Robotics/RoboticsResources/SLAMTutorial1.pdf)
 
