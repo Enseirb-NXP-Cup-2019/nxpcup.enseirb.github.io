@@ -10,6 +10,8 @@ The following images show our first test setup and results, using directly the P
 
 ![pixy2_with_vectors](https://raw.githubusercontent.com/Enseirb-NXP-Cup-2019/nxpcup.enseirb.github.io/master/img/pixy2-vector.png)
 
+We'll also add a Kamin filter over the input provided by the Pixy2 to avoid erratic data. [tutorial](https://www.kalmanfilter.net/default.aspx)
+
 ### The Teensy 4
 The Teensy 4 is a powerfull microcontroller which can be programmed using the [Arduino IDE add-on](https://www.pjrc.com/teensy/td_download.html). In order to have the Teensy working we use a 5V micro-usb. For a first test, we connected it to the arduino IDE and tried to upload the simple example, which worked flawlessly.
 
@@ -63,7 +65,7 @@ If we take a look at the the Pixy 2 results, we can see it's detecting three vec
   line0: [[54, 15], [55, 0]],
   line1: [[68, 17], [70, 0]],
   line2: [[23, 10], [24, 0]]
-  
+
 }
 ```
 
@@ -83,7 +85,7 @@ In this project, a brushless motor is used to drive the four wheels of the car. 
 
 ### ESC
 
-ESC stand for Electronic Speed Control. It is an electronic circuit that controls and regulates the speed of an electric motor. It will be the intermediate between the brushless motor and the Teensy programm. 
+ESC stand for Electronic Speed Control. It is an electronic circuit that controls and regulates the speed of an electric motor. It will be the intermediate between the brushless motor and the Teensy programm.
 
 ![ESC_connections](https://raw.githubusercontent.com/Enseirb-NXP-Cup-2019/nxpcup.enseirb.github.io/master/img/esc_connections.png)
 
@@ -135,4 +137,3 @@ Français. NNT : 2012ENMP0103. pastel-00935600](https://pastel.archives-ouvertes
 # Others
 
 * A list of algorithms : [Open-Slam](https://openslam-org.github.io/)
-
